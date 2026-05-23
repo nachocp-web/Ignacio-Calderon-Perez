@@ -339,7 +339,7 @@ const AboutPage = () => (
           <div className="relative order-2 lg:order-1">
             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
               <img 
-                src="/src/assets/images/regenerated_image_1778963518834.png" 
+                src="/regenerated_image_1778963518834.png" 
                 alt="Ignacio Calderon Perez" 
                 className="w-full h-full object-cover"
               />
