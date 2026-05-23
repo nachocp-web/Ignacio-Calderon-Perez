@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+
+  --color-surface: #fff8f4;
+  --color-surface-dim: #e1d8d2;
+  --color-surface-bright: #fff8f4;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fbf2eb;
+  --color-surface-container: #f5ece5;
+  --color-surface-container-high: #f0e7df;
+  --color-surface-container-highest: #eae1da;
+  --color-on-surface: #1f1b17;
+  --color-on-surface-variant: #444840;
+  --color-inverse-surface: #34302b;
+  --color-inverse-on-surface: #f8efe8;
+  --color-outline: #75786f;
+  --color-outline-variant: #c5c8bd;
+  --color-surface-tint: #54634a;
+  --color-primary: #526048;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #6a795f;
+  --color-on-primary-container: #f8ffed;
+  --color-inverse-primary: #bcccae;
+  --color-secondary: #83523d;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #febda3;
+  --color-on-secondary-container: #7a4a36;
+  --color-tertiary: #5f5c52;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #78746a;
+  --color-on-tertiary-container: #fffbff;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-primary-fixed: #d8e8c8;
+  --color-primary-fixed-dim: #bcccae;
+  --color-on-primary-fixed: #131f0b;
+  --color-on-primary-fixed-variant: #3d4b34;
+  --color-secondary-fixed: #ffdbcd;
+  --color-secondary-fixed-dim: #f8b89e;
+  --color-on-secondary-fixed: #331103;
+  --color-on-secondary-fixed-variant: #683b28;
+  --color-tertiary-fixed: #e8e2d6;
+  --color-tertiary-fixed-dim: #cbc6ba;
+  --color-on-tertiary-fixed: #1e1c14;
+  --color-on-tertiary-fixed-variant: #4a473e;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+}
+
+.font-headline {
+  font-family: var(--font-serif);
+}
+
+.font-body {
+  font-family: var(--font-sans);
+}
