@@ -146,7 +146,7 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => {
               <Mail size={16} /> Indalo@psykiatri.dk
             </p>
             <p className="flex items-center justify-center md:justify-start gap-2">
-              <Phone size={16} /> +45 34567887
+              <Phone size={16} /> 34542378
             </p>
           </div>
         </div>
@@ -600,7 +600,7 @@ const ContactPage = () => (
                 <label className="font-body text-xs font-bold uppercase tracking-widest text-primary ml-2">Telefon</label>
                 <input 
                   type="tel" 
-                  placeholder="+45 34567887"
+                  placeholder="34542378"
                   className="w-full px-6 py-4 rounded-2xl bg-surface-container-low border-transparent focus:border-primary focus:ring-0 font-body transition-all"
                 />
               </div>
@@ -634,7 +634,7 @@ const ContactPage = () => (
               {[
                 { icon: <MapPin />, label: "Klinikadresse", text: "Rolighedsvej 36, 8240 Risskov" },
                 { icon: <Mail />, label: "E-mailadresse", text: "Indalo@psykiatri.dk" },
-                { icon: <Phone />, label: "Telefon", text: "+45 34567887" },
+                { icon: <Phone />, label: "Telefon", text: "34542378" },
               ].map((item, i) => (
                 <div key={i} className="flex gap-6 items-start">
                   <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-secondary shadow-sm">
