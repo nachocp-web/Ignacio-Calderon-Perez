@@ -245,10 +245,10 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => {
       {/* Philosophy */}
       <section id="philosophy-section" className="py-24 px-6 md:px-12 bg-surface-container-lowest">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-secondary">Klinisk tilgang</span>
-          <h2 className="font-headline text-3xl md:text-5xl text-primary">Ro som et terapeutisk værktøj</h2>
+          <span className="font-body text-xs font-bold uppercase tracking-[0.2em] text-secondary">Vores behandlingsfilosofi</span>
+          <h2 className="font-headline text-3xl md:text-5xl text-primary">Mennesket i centrum</h2>
           <p className="font-body text-lg text-on-surface-variant leading-relaxed">
-            Vores praksis bevæger sig væk fra den traditionelle kliniske kulde og omfavner en varm minimalisme. Vi tror på, at omgivelserne er afgørende for helingsprocessen, og tilbyder et trygt rum, hvor du kan trække vejret, reflektere og finde klarhed med professionel og empatisk vejledning.
+            Vores filosofi bygger på at skabe et trygt og imødekommende rum fyldt med empati, tid og nærvær. Vi tror på, at heling og mental trivsel bedst understøttes i rolige omgivelser, hvor den nyeste videnskabelige psykiatri går hånd i hånd med en dyb respekt for dit unikke livsforløb.
           </p>
         </div>
       </section>
@@ -288,7 +288,7 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => {
               <div className="w-14 h-14 bg-tertiary-container/20 text-tertiary rounded-2xl flex items-center justify-center">
                 <Pill className="w-7 h-7" />
               </div>
-              <h3 className="font-headline text-3xl text-primary">Medicinering</h3>
+              <h3 className="font-headline text-3xl text-primary">Medicin behandling</h3>
               <p className="font-body text-on-surface-variant">
                 Klinisk opfølgning for ansvarlig og overvåget brug af psykofarmakologisk behandling.
               </p>
