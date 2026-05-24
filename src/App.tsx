@@ -19,7 +19,12 @@ import {
   Quote,
   CheckCircle2,
   ChevronDown,
-  ArrowUp
+  ArrowUp,
+  Activity,
+  ShieldAlert,
+  Sparkles,
+  Heart,
+  Zap
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -38,7 +43,7 @@ const Header = ({ currentPage, setPage }: { currentPage: Page, setPage: (p: Page
   const navItems: { label: string, id: Page }[] = [
     { label: 'Hjem', id: 'home' },
     { label: 'Om mig', id: 'about' },
-    { label: 'Terapiformer', id: 'therapies' },
+    { label: 'Udredning og behandling', id: 'therapies' },
     { label: 'Kontakt', id: 'contact' },
   ];
 
@@ -127,7 +132,7 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => {
           <ul className="space-y-2">
             <li><button onClick={() => setPage('home')} className="text-on-surface-variant hover:text-secondary text-sm">Hjem</button></li>
             <li><button onClick={() => setPage('about')} className="text-on-surface-variant hover:text-secondary text-sm">Om mig</button></li>
-            <li><button onClick={() => setPage('therapies')} className="text-on-surface-variant hover:text-secondary text-sm">Terapiformer</button></li>
+            <li><button onClick={() => setPage('therapies')} className="text-on-surface-variant hover:text-secondary text-sm">Udredning og behandling</button></li>
           </ul>
         </div>
 
@@ -138,10 +143,10 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => {
               <MapPin size={16} /> Rolighedsvej 36, 8240 Risskov
             </p>
             <p className="flex items-center justify-center md:justify-start gap-2">
-              <Mail size={16} /> kontakt@psykiatricph.dk
+              <Mail size={16} /> Indalo@psykiatri.dk
             </p>
             <p className="flex items-center justify-center md:justify-start gap-2">
-              <Phone size={16} /> +45 23 22 07
+              <Phone size={16} /> 34542378
             </p>
           </div>
         </div>
@@ -193,7 +198,7 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent" />
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2">
           <motion.div 
             initial={{ x: -50, opacity: 0 }}
@@ -201,6 +206,13 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-8 max-w-xl"
           >
+            <div className="flex justify-start mb-6">
+              <img 
+                src="/Logo.png?v=3"
+                alt="Aarhus Psykiatriklinik Indalo Logo"
+                className="h-24 md:h-32 w-auto object-contain mix-blend-multiply"
+              />
+            </div>
             <h1 id="hero-headline" className="font-headline text-5xl md:text-7xl text-primary leading-[1.1]">
               Aarhus Psykiatriklinik <br />
               <span className="text-3xl md:text-5xl block mt-4">
@@ -288,16 +300,16 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => {
               <div className="w-14 h-14 bg-surface-container text-on-surface-variant rounded-2xl flex items-center justify-center">
                 <Compass className="w-7 h-7" />
               </div>
-              <h3 className="font-headline text-3xl text-primary">Klinisk Mindfulness</h3>
-              <p className="font-body text-on-surface-variant">
-                Teknikker til bevidst nærvær integreret i behandlingen for at reducere angst og forbedre følelsesmæssig regulering i hverdagen.
+              <h3 className="font-headline text-3xl text-primary">Psykoedukation</h3>
+              <p className="font-body text-on-surface-variant font-light leading-relaxed">
+                Psykoedukation er en afgørende brik i din heling. Ved at opnå en dybdegående forståelse for din diagnose og dine symptomer, ruster vi dig med de rette strategier og redskaber, så du aktivt kan tage ejerskab over din egen helingsproces og hverdagen.
               </p>
             </div>
             <div id="mindfulness-image-container" className="w-full md:w-1/3 aspect-square rounded-2xl overflow-hidden bg-surface-variant">
               <img 
                 id="mindfulness-image"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKw18XMXIzWPnqIOGVCA5Lsxi4di9ptXoMwoaeTHe2B3iqP8s0ttQjGumRFdL6UE7OQlR4eKIU5DDPiec-fGJkxKt3ASW2q_jRAY2-ZYI30GgZrFMtTq_jgvPn1YvWENz0OQt42e_f6NqnrVegIJQyZWVSPuhNgC9WP92oHiFqYFP3n62IaXV_Bz4DYPIqg8QetawJadOI1ImjJlhGC2enqcJKLhVnsuRD2NGDIadTq3fGCHZ5Pr4a8LmUhQW_zWI9JXEEkIiDuHE" 
-                alt="Mindfulness" 
+                alt="Psykoedukation" 
                 className="w-full h-full object-cover mix-blend-multiply opacity-80"
               />
             </div>
@@ -305,27 +317,7 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void }) => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 px-6 md:px-12 bg-surface-container-low overflow-hidden relative">
-        <div className="max-w-4xl mx-auto text-center space-y-12 relative z-10">
-          <Quote className="w-16 h-16 text-secondary mx-auto opacity-30" />
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="font-headline text-3xl md:text-4xl text-primary italic leading-relaxed"
-          >
-            "Fra det øjeblik jeg trådte ind, følte jeg en dyb følelse af ro. Tilgangen føles ikke klinisk, men dybt menneskelig og forstående. Det har været afgørende for min bedring."
-          </motion.p>
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-14 h-14 rounded-full bg-surface-variant flex items-center justify-center font-body text-on-surface-variant text-lg">M.S.</div>
-            <div className="text-left">
-              <p className="font-body font-bold text-primary">Anonym patient</p>
-              <p className="font-body text-xs text-on-surface-variant">Løbende terapi</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 };
@@ -339,7 +331,7 @@ const AboutPage = () => (
           <div className="relative order-2 lg:order-1">
             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
               <img 
-                src="/regenerated_image_1778963518834.png" 
+                src="/medico.png" 
                 alt="Ignacio Calderon Perez" 
                 className="w-full h-full object-cover"
               />
@@ -349,9 +341,9 @@ const AboutPage = () => (
           </div>
 
           <div className="space-y-8 order-1 lg:order-2">
-            <div className="space-y-4">
-              <span className="font-body text-sm font-bold uppercase tracking-widest text-secondary">Speciallæge i psykiatri</span>
-              <h1 className="font-headline text-5xl md:text-7xl text-primary leading-tight">Ignacio Calderon Perez</h1>
+            <div className="space-y-3">
+              <h1 className="font-headline text-2xl sm:text-3xl md:text-4xl text-primary leading-tight whitespace-nowrap">Ignacio Calderon Perez</h1>
+              <span className="block font-body text-xs sm:text-sm font-bold uppercase tracking-widest text-secondary">Speciallæge i psykiatri</span>
               <p className="font-body text-xl text-on-surface-variant leading-relaxed">
                 Min rejse inden for psykiatrien har altid været drevet af en dyb nysgerrighed på det menneskelige sind og et ønske om at skabe ægte forandring. 
               </p>
@@ -486,21 +478,46 @@ const AboutPage = () => (
 );
 
 const TherapiesPage = () => {
-  const therapies = [
+  const disorders = [
     {
-      title: "Kognitiv adfærdsterapi (KAT)",
-      description: "En struktureret tilgang, der undersøger forbindelsen mellem tanker, følelser og adfærd. Det giver dig praktiske værktøjer til mental modstandskraft.",
-      icon: <Brain />
+      title: "ADHD",
+      description: "En neurobiologisk udviklingsforstyrrelse, der er karakteriseret ved udfordringer med opmærksomhed, hyperaktivitet og impulsivitet. Hos voksne kan det vise sig som indre uro, udorganisering, manglende overblik og vanskeligheder med at strukturere hverdagen. Vi tilbyder en grundig udredning og en individuelt tilpasset behandlingsplan, der kan omfatte både medicinsk behandling og kognitive strategier.",
+      icon: <Zap />
     },
     {
-      title: "Mindfulness og bevidst nærvær",
-      description: "Praksis der inviterer til at forankre opmærksomheden i nuet uden dom. Hjælper med at reducere kognitiv støj og angst ved at dyrke indre ro.",
+      title: "ADD",
+      description: "Ofte beskrevet som den uopmærksomme eller \"stille\" form for ADHD, hvor hyperaktiviteten ikke er fremtrædende. Personer med ADD oplever primært store problemer med koncentration, mental træthed, overvældelse og at blive let afledt. Vores udredning og behandling fokuserer på at afdække disse udfordringer samt styrke hverdagens struktur.",
       icon: <Compass />
     },
     {
-      title: "Acceptance and Commitment Therapy (ACT)",
-      description: "Fremmer psykologisk fleksibilitet. Vi lærer at acceptere det, der er uden for vores kontrol, og forpligte os til berigende handlinger.",
+      title: "Depression",
+      description: "Depression er en udbredt sindslidelse, der rækker langt ud over almindelig tristhed eller modløshed. Symptomerne inkluderer vedvarende nedtrykthed, udtalt mangel på energi og lyst, søvnbesvær samt følelser af skyld, håbløshed eller værdiløshed. Vi hjælper dig gennem en kombination af præcis medicinsk optimering og omsorgsfuld samtaleterapi.",
+      icon: <Heart />
+    },
+    {
+      title: "Bipolar lidelse",
+      description: "En stemningslidelse med markante og tilbagevendende udsving in humør, energi og aktivitetsniveau. Perioderne skifter mellem maniske eller hypomaniske faser, hvor man er i ekstremt højt gear, og dybe depressive episoder. Behandlingen tilpasses for at stabilisere stemningslejet og forebygge fremtidige udsving via medicin og psykoedukation.",
+      icon: <Activity />
+    },
+    {
+      title: "Angst",
+      description: "Angst kan komme til udtryk i forskellige former som panikangst eller sociale fobier, hvor man oplever pludseligt, overvældende fysisk ubehag kombineret med intens frygt. Dette fører ofte til en hæmmende undvigeadfærd i dagligdagen. Vi arbejder her på at genskabe tryghed og bryde angstmønstrene med dokumenterede faglige metoder.",
+      icon: <ShieldAlert />
+    },
+    {
+      title: "Generaliseret angst",
+      description: "Karakteriseret ved en konstant, gennemgribende bekymringstendens omkring hverdagens begivenheder og mulige farer. Man oplever ofte kronisk muskelspænding, indre uro, irritabilitet og vedvarende søvnbesvær. Behandlingen sigter mod at berolige dit nervesystem, dæmpe bekymringstankerne og genvinde din frihed.",
+      icon: <Brain />
+    },
+    {
+      title: "OCD",
+      description: "OCD (obsessiv-kompulsiv tilstand) indebærer uønskede eller ufrivillige og stærkt ubehagelige tvangstanker, som ledsages af tvangshandlinger eller ritualer for at afværge uheld eller mindske den intense angst. Behandlingen har til formål at mindske ritualernes kontrol over dit liv og opbygge sundere mestringsstrategier.",
       icon: <CheckCircle2 />
+    },
+    {
+      title: "Trauma og PTSD",
+      description: "En belastningsreaktion, der kan udvikle sig efter dramatiske eller livstruende oplevelser. Almindelige symptomer er ufrivillig genoplevelse af hændelsen (flashbacks), mareridt, undgåelsesadfærd over for triggere samt en konstant følelse af vagtsomhed og alarmberedskab. Behandlingen støtter nænsomt op om din heling og bearbejdning.",
+      icon: <Sparkles />
     }
   ];
 
@@ -508,20 +525,22 @@ const TherapiesPage = () => {
     <div className="animate-in slide-in-from-right-5 duration-700 pt-32 pb-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto space-y-24">
         <section className="max-w-3xl mx-auto text-center space-y-8">
-          <h1 className="font-headline text-5xl md:text-6xl text-primary">Terapeutiske tilgange</h1>
+          <h1 className="font-headline text-5xl md:text-6xl text-primary">Udredning og behandling</h1>
           <p className="font-body text-lg text-on-surface-variant">
-            Vi anvender en integrativ tilgang og vælger den terapeutiske modalitet, der bedst passer til din oplevelse. Et trygt rum, hvor mental trivsel kan blomstre.
+            Vi tilbyder professionel, individuelt tilpasset og evidensbaseret udredning samt medicinsk og terapeutisk behandling af en lang række psykiatriske lidelser.
           </p>
         </section>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {therapies.map((t, idx) => (
-            <div key={idx} className="bg-white rounded-[2rem] p-10 border border-outline-variant/30 hover:shadow-xl transition-all group">
-              <div className="w-16 h-16 bg-surface-container-low text-primary rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-colors">
-                {t.icon}
+          {disorders.map((d, idx) => (
+            <div key={idx} className="bg-white rounded-[2rem] p-10 border border-outline-variant/30 hover:shadow-xl transition-all group flex flex-col justify-between">
+              <div>
+                <div className="w-16 h-16 bg-surface-container-low text-primary rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-white transition-colors">
+                  {d.icon}
+                </div>
+                <h3 className="font-headline text-2xl text-primary mb-4">{d.title}</h3>
+                <p className="font-body text-sm text-on-surface-variant leading-relaxed">{d.description}</p>
               </div>
-              <h3 className="font-headline text-2xl text-primary mb-4">{t.title}</h3>
-              <p className="font-body text-sm text-on-surface-variant leading-relaxed">{t.description}</p>
             </div>
           ))}
         </div>
@@ -581,7 +600,7 @@ const ContactPage = () => (
                 <label className="font-body text-xs font-bold uppercase tracking-widest text-primary ml-2">Telefon</label>
                 <input 
                   type="tel" 
-                  placeholder="+45 23 22 07"
+                  placeholder="34542378"
                   className="w-full px-6 py-4 rounded-2xl bg-surface-container-low border-transparent focus:border-primary focus:ring-0 font-body transition-all"
                 />
               </div>
@@ -614,8 +633,8 @@ const ContactPage = () => (
             <div className="space-y-8">
               {[
                 { icon: <MapPin />, label: "Klinikadresse", text: "Rolighedsvej 36, 8240 Risskov" },
-                { icon: <Mail />, label: "E-mailadresse", text: "kontakt@psykiatricph.dk" },
-                { icon: <Phone />, label: "Telefon", text: "+45 23 22 07" },
+                { icon: <Mail />, label: "E-mailadresse", text: "Indalo@psykiatri.dk" },
+                { icon: <Phone />, label: "Telefon", text: "34542378" },
               ].map((item, i) => (
                 <div key={i} className="flex gap-6 items-start">
                   <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-secondary shadow-sm">
@@ -630,14 +649,17 @@ const ContactPage = () => (
             </div>
             
             <div className="aspect-[16/10] bg-surface-container-low rounded-3xl overflow-hidden shadow-inner border border-outline-variant/30 relative">
-              {/* Map Placeholder */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-on-surface-variant p-8 text-center space-y-4">
-                <MapPin size={48} className="text-secondary opacity-50" />
-                <p className="font-body text-sm italic">Central beliggenhed i Risskov</p>
-                <button className="bg-white px-6 py-2.5 rounded-full shadow-sm text-xs font-bold text-primary hover:bg-surface transition-colors flex items-center gap-2">
-                  Se på Google Maps
-                </button>
-              </div>
+              <iframe
+                title="Google Maps - Aarhus Psykiatriklinik"
+                src="https://maps.google.com/maps?q=Rolighedsvej%2036,%208240%20Risskov&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 w-full h-full"
+              ></iframe>
             </div>
           </div>
 
